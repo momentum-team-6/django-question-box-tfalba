@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class='new-question-div flex'>
+  <p class='question-button'>Create New Question</p>
+</div>
+
+<div class="form-div">
+  <form  action="{% url 'add_question' %}" method="POST">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <div>
+      <button class='button-function' type="submit">Add Question</button>
+    </div>
+  </form>
+</div>
+{% endblock %}

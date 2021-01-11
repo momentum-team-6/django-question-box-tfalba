@@ -1,0 +1,20 @@
+
+{% extends "base.html" %}
+
+{% block content %}
+<div class='new-question-div flex'>
+  <p class='question-button'>Delete Question</p>
+</div>
+
+<div class="form-div">
+  <form  action="{% url 'delete_question' pk=question.pk %}" method="POST">
+    {% csrf_token %}
+    <p>Are you sure you want to delete? {{ question.title }}</p>
+    <div>
+      <button class='button-function' type="submit">Delete Question</button>
+      <a href="{% url 'home' %}">Cancel</a>
+    </div>
+  </form>
+</div>
+{% endblock %}
+

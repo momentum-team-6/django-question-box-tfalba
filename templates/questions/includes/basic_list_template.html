@@ -1,0 +1,113 @@
+
+{% block content %}
+
+<!-- --------------------------------------------------- Heading --------------------------------------------------- -->
+
+<!-- ----------------------- Turn this into a nav_bar_html that I can include on every page ------------------------ -->
+
+<!-- --------------------------------------------- Heading Navigation ---------------------------------------------- -->
+
+<div class='flex header-bar' >
+  <div class='flex'>Filter Options</div>
+  {% if labels %}
+    <div class='flex fe side-nav'>
+      {% for label in labels %}
+      <form style="text-align:center;" action="#" method="get">
+        <input class='label-button' type="submit" value='{{ label }}' name='labels'/>
+      </form>
+      {% endfor %}
+      <!-- Sends one final form for collecting all labels that is hardcoded in the view -->
+      <form style="text-align:center;" action="#" method="get">
+        <input class='label-button' type="submit" value='All' name='labels'/>
+      </form>
+    </div>
+  {% endif %}
+  <div class='flex fe side-nav'>
+  <form style="text-align:center;" action="#" method="get">
+    <input class='label-button' type="submit" value='Open' name='labels'/>
+  </form>
+  <form style="text-align:center;" action="#" method="get">
+    <input class='label-button' type="submit" value='Closed' name='labels'/>
+  </form>
+  </div>
+  <div class='flex'>{{ request.user }}</div>
+</div>
+
+
+<!-- --------------------------------------------------------------------------------------------------------------- -->
+<!--                               Question list container and loop -- questions only                                -->
+<!-- --------------------------------------------------------------------------------------------------------------- -->
+
+<div class='question-list-container'>
+  <ul class='question-list' >
+  {% for question in faves %}
+    <li>
+      <div class='flex fe-col'>
+
+        <p class="title fw400 flex"><strong>Question: </strong>{{ question.title }}</p>
+
+        {% if question.labels %}
+        {% for label in question.labels.all %}
+        <form style="text-align:center;" action="#" method="get">
+          <input class='label-button' type="submit" value='{{ label }}' name='labels'/>
+        </form>
+        {% endfor %}
+        {% endif %}
+        {% if question.is_closed == False %}
+        <form style="text-align:center;" action="#" method="get">
+          <input class='label-button' type="submit" value='Open' name='labels'/>
+        </form>
+        {% else %}
+        <form style="text-align:center;" action="#" method="get">
+          <input class='label-button' type="submit" value='Closed' name='labels'/>
+        </form>
+        {% endif %}
+        <i style=' padding-bottom:5px; padding-left: 5px;' class="title fa-star far"></i>
+
+      </div>
+      <div class='question-detail-preview'>
+          {{ question.body }}
+      </div>
+      <div class='flex ml15'>
+        <p class='flex'><strong>Created at: </strong> {{ question.created_at }}</p>
+        <p class='flex ml15'><strong>Submitted by: </strong>{{ question.user }}</p>
+      </div>
+
+
+<!-- ---------------------------------- Insert Answers here in Answer Detail View ---------------------------------- -->
+
+{% if request.path == '/questions/answers' %}
+      {% include 'questions/includes/answer_detail_template.html' %}
+{% endif %}
+
+{% if request.path == '/questions/my_q_a' %}
+      {% include 'questions/includes/answer_detail_template.html' %}
+{% endif %}
+
+      <div class='mt15 flex ml15' data-question-pk={{question.pk}}>
+        <a class='button-function detail' href="{% url 'question_detail' pk=question.pk %}">Detail</a>
+        
+        {% if question.is_closed == False %}
+        <a class='button-function detail ' href="{% url 'add_answer' pk=question.pk %}">Answer</a>
+        {% if question.user == request.user %}
+        <div class='button-function mark-closed '>Mark Closed</div>
+        {% endif %}
+        {% endif %}
+        {% if question.user == request.user %}
+        <a class='button-function delete' href="{% url 'delete_question' pk=question.pk %}">Delete</a>
+        {% endif %}
+      </div>
+    </li>
+  {% endfor %}
+  </ul>
+</div>
+
+<!-- --------------------------------------------------------------------------------------------------------------- -->
+<!--                                           Footer to add new questions                                           -->
+<!-- --------------------------------------------------------------------------------------------------------------- -->
+
+<div class='ml20 flex'>
+  <p><a class='question-button' href="{% url 'add_question' %}">New Question</a></p>
+</div>
+{% endblock %}
+

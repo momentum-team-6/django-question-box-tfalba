@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<!-- --------------------------------------------------- Heading --------------------------------------------------- -->
+
+<div class='new-question-div flex'>
+  <p class='question-button'>Question Details</p>
+</div>
+
+{% include 'questions/includes/detail_view_template.html' %}
+
+<!-- ---------------------------------------- Footer for adding new answers ---------------------------------------- -->
+
+{% if question.has_correct_answer == False %}
+<div >
+  <p><a class='question-button' href="{% url 'add_answer' pk=question.pk %}">Contribute Answer</a></p>
+</div>
+{% endif %}
+
+{% endblock %}

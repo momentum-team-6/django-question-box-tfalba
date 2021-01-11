@@ -7,16 +7,44 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Question Box</title>
   <link rel="stylesheet" href="{% static 'css/style.css' %}">
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Acme&family=Dosis:wght@200;300;400;500;600;700;800&family=Inconsolata:wght@200;300;400;500;600;700;800;900&family=Indie+Flower&display=swap" rel="stylesheet">
+  <script src="{% static 'js/scripts.js' %}" defer></script>
+  <script src="https://kit.fontawesome.com/846acebbe7.js" crossorigin="anonymous"></script>
 </head>
 
 <body class="body" >
   <div class="header">
-    <h1>Hello World</h1>
-    <h1><a class="header-nav" href="{% url 'home' %}">Questions App</a></h1>
+    <h1><a class="header-nav" href="{% url 'home' %}">JOIN THE SUPPORT TRAIN</a></h1>
   </div>
   <div class='content-block'>
+    <div class='flex header-bar-top' style='justify-content: space-between;'>
+    <div class='flex' style='justify-content: space-between;'>
+      
+        <p><a href="{% url 'home' %}" {% if request.path == '/' %} class='question-button highlight-button' {% else %} class= 'question-button' {% endif %}>All Questions</a></p>
+        <p><a href="{% url 'answer_detail' %}" {% if request.path == '/questions/answers' %} class='question-button highlight-button' {% else %} class='question-button' {% endif %}>All Q & A</a></p>
+        <p><a href="{% url 'my_questions' %}" {% if request.path == '/questions/my_questions' %} class='question-button highlight-button' {% else %} class='question-button' {% endif %}>My Questions</a></p>
+        <p><a href="{% url 'my_q_a' %}" {% if request.path == '/questions/my_q_a' %} class='question-button highlight-button' {% else %} class='question-button' {% endif %}>My Q & A</a></p>
+
+     </div>
+<!-- --------------------------------------------------------------------------------------------------------------- -->
+<!--                                                   Search Bar                                                    -->
+<!-- --------------------------------------------------------------------------------------------------------------- -->
+{% if request.path == '/' or request.path == '/questions/answers' or request.path == '/questions/my_questions' or request.path == '/questions/my_q_a' %}
+        <div class="search-form-div">
+          <form class='search-form' action="#" method="POST">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <div class='search-submit'>
+              <button class='button-function' type="submit">Submit</button>
+            </div>
+          </form>
+        </div>
+ {% endif %}     
+    </div>
     {% block content %}
     {% endblock %}
   </div>
+  <div id='fixed-footer'></div>
 </body>
 </html>

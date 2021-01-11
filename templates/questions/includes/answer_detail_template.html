@@ -1,0 +1,36 @@
+
+      {% if question.answers.all %}
+      <div class='answer-block flex-col'>
+        <div class='flex'>
+          <p class='question-button flex'>Answers</p>
+        </div>
+        {% for answer in question.answers.all %}
+        <div>
+          <div data-answer-pk={{answer.pk}} class='flex'>
+            <div class='answer flex' >{{ answer.text }}</div>
+            
+            <i class='flex fa-star far'></i>
+            {% if request.user == question.user %}
+            <p class='flex answer'>Correct</p>
+            <i id='correct{{ answer.pk }}' class="far correct-answer {% if answer.is_correct %}fa-check-square{% else %}fa-square {% endif %}"></i>
+            <!-- <i class='flex fa-star far' style='font-size: 16px;'></i> -->
+            {% endif %}
+            <i class='flex far ml10 {% if answer.is_correct %} fa-smile {% endif %}'></i>
+          </div>
+          <div class='flex ml20'>
+            <div class='answer-time flex'>{{ answer.timestamp }} // </div>
+            <div class='answer-time flex'>Submitted by: {{ answer.user }}</div>
+          
+          {% if answer.user == request.user %}
+
+          <!-- <div class='answer-time flex'> -->
+            
+            <a class='answer-time flex ml15' href="{% url 'delete_answer' pk=answer.pk %}"><i class="far fa-trash-alt"></i></a>
+          <!-- </div> -->
+          {% endif %}
+        </div>
+          
+        </div>
+        {% endfor %}
+      </div>
+      {% endif %}

@@ -1,0 +1,61 @@
+
+{% block content %}
+
+
+<!-- -------------------------------- Question Detail and All Answers for Question --------------------------------- -->
+
+
+<div class='question-list-container'>
+  <ul class='question-list' >
+    <li>
+      <div class='flex fe-col'>
+
+        <p class="title fw400 flex"><strong>Question: </strong>{{ question.title }}</p>
+
+        {% if question.labels %}
+        {% for label in question.labels.all %}
+        <form style="text-align:center;" action="#" method="get">
+          <input class='label-button' type="submit" value='{{ label }}' name='labels'/>
+        </form>
+        {% endfor %}
+        {% endif %}
+        {% if question.is_closed == False %}
+        <form style="text-align:center;" action="#" method="get">
+          <input class='label-button' type="submit" value='Open' name='labels'/>
+        </form>
+        {% else %}
+        <form style="text-align:center;" action="#" method="get">
+          <input class='label-button' type="submit" value='Closed' name='labels'/>
+        </form>
+        {% endif %}
+      </div>
+      <div class='question-detail-preview'>
+          {{ question.body }}
+      </div>
+      <div class='flex ml15'>
+        <p class='flex'><strong>Created at: </strong> {{ question.created_at }}</p>
+        <p class='flex ml15'><strong>Submitted by: </strong>{{ question.user }}</p>
+      </div>
+
+
+<!-- ---------------------------------- Insert Answers here in Answer Detail View ---------------------------------- -->
+
+      {% include 'questions/includes/answer_detail_template.html' %}
+
+      <div class='mt15 flex ml15'>
+        {% if question.is_closed == False %}
+        <a class='button-function detail' href="{% url 'add_answer' pk=question.pk %}">Answer</a>
+        {% endif %}
+        {% if question.is_closed == False and question.user == request.user %}
+        <div class='button-function mark-closed'>Mark Closed</div>
+        {% endif %}
+        {% if question.user == request.user %}
+        <a class='button-function delete' href="{% url 'delete_question' pk=question.pk %}">Delete</a>
+        {% endif %}
+
+      </div>
+    </li>
+  </ul>
+</div>
+
+{% endblock %}
