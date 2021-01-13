@@ -15,7 +15,7 @@ def index(request):
   favorites = Favorite.objects.all()
   form = SearchForm()
   user_favorites = Favorite.objects.filter(user=request.user)
-  num_favorite = Count('favorite')
+  num_favorite = Count('favorites')
   question_base = Question.objects.all()
 
   
@@ -47,7 +47,7 @@ def user_home(request):
   favorites = Favorite.objects.all()
   form = SearchForm()
   user_favorites = Favorite.objects.filter(user=request.user)
-  num_favorite = Count('favorite')
+  num_favorite = Count('favorites')
   question_base = Question.objects.filter(user=request.user)
     
   if request.method == 'POST':
@@ -80,7 +80,7 @@ def user_q_a(request):
   favorites = Favorite.objects.all()
   form = SearchForm()
   user_favorites = Favorite.objects.filter(user=request.user)
-  num_favorite = Count('favorite')
+  num_favorite = Count('favorites')
   question_base = Question.objects.filter(user=request.user)
   
   if request.method == 'POST':
@@ -134,7 +134,7 @@ def answer_detail(request):
     form = SearchForm()
     questions = question_base
   
-  num_favorite = Count('favorite')
+  num_favorite = Count('favorites')
   faves = questions.annotate(num_favorite=num_favorite)
 
   return render(request, 'questions/answer_detail_view.html', {"questions": questions, "labels": labels, "favorites": favorites, "faves": faves, "form": form, "user_favorites": user_favorites})

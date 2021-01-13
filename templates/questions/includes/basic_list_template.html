@@ -62,7 +62,7 @@
           <input class='label-button' type="submit" value='Closed' name='labels'/>
         </form>
         {% endif %}
-        <i style=' padding-bottom:5px; padding-left: 5px;' class="title fa-star far"></i>
+        <i style=' padding-bottom:5px; padding-left: 5px;' class="title fa-star {% if question.is_favorite_user %}fas {% else %}far {% endif %}"></i>
 
       </div>
       <div class='question-detail-preview'>
