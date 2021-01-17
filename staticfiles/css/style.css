@@ -1,0 +1,364 @@
+* {
+  font-family: 'Inconsolata', monospace;
+}
+
+.header {
+  color:black; 
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  /* background-image: url("../images/pexels-caryn-938165.jpg");
+  background-image: url("../images/pexels-martin-péchy-1255149.jpg"); */
+  /* background-image: url("../images/pexels-irina-iriser-1090972.jpg"); */
+  background-image: url("../images/pexels-martin-péchy-1255149.jpg");
+  width: 100%;
+
+  background-size: 100%;
+  height: 330px;
+  position: fixed;
+  top: 0;
+}
+#fixed-footer {
+  bottom: 0;
+}
+
+.header-nav {
+  text-decoration: none;
+  font-size: 50px;
+
+  background-color: #0d0d0d94;
+  background-color: #f6f2f2a6;
+  /* border: 4px solid black;  */
+  color: rgb(228, 225, 225);
+  color: black;
+
+}
+
+.header-bar-top {
+  position: fixed;
+  top: 230px;
+  width: 100%;
+}
+
+.header-bar {
+  /* justify-content: space-between; */
+  align-items: flex-end;
+  position: fixed;
+  top: 345px;
+  flex-direction: column;
+}
+
+.search-submit {
+  display: flex;
+  align-items: center;
+  margin-left:10px;
+}
+.side-nav {
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.body {
+  margin: 0;
+  font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+
+  padding-bottom: 200px;
+  background-color: rgb(32, 32, 32);
+  background-color: rgb(3, 23, 21);
+  background-color: rgb(220, 159, 8);
+  background-image: url("../images/pexels-martin-péchy-1255149.jpg");
+  /* background-repeat: no-repeat; */
+  background-size: 100%;
+
+
+  font-family: 'Inconsolata', monospace;
+  display:flex;
+  /* flex-direction: column; */
+  align-items: center;
+}
+
+.content-block {
+  display:flex; 
+  flex-direction: column; 
+  margin-left:20px;
+  margin-right: 20px;
+  padding-top: 325px;
+
+}
+
+.box {
+  display: none;
+}
+
+
+.question-list-container {
+  margin-left:40px; 
+  background-color: #f9a8253b;
+  border-radius: 10px;
+  color: rgb(19, 18, 18);
+}
+
+.new-question-div {
+  margin-top: 20px; 
+  /* margin-left: 20px; */
+}
+
+.question-list {
+  list-style: none;
+  padding-left: 10px; 
+  padding-right:15px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  margin-left: 100px;
+}
+
+.question-list li, .detail-container {
+  padding: 10px;
+  margin: 5px;
+  border: solid black 2px;
+  border-radius: 10px;
+  background-color: rgba(233, 228, 228, 0.863);
+}
+
+.question-list li {
+  margin-bottom: 25px;
+}
+
+
+.flex {
+  display: flex;
+  margin: 0;
+}
+
+.flex-col {
+  display: flex;
+  flex-direction: column;
+  margin: 0;
+}
+
+.fe {
+  justify-content: flex-end;
+}
+.fe-col {
+  align-items: flex-end;
+}
+
+.title {
+  font-size: 25px;
+  /* margin-bottom: 15px; */
+  /* border-bottom: dotted 1px white; */
+  margin-left: 15px;
+}
+
+.mt15 {
+  margin-top: 15px;
+}
+
+.ml20 {
+  margin-left: 20px;
+}
+
+.ml15 {
+  margin-left: 15px;
+}
+
+.ml10 {
+  margin-left: 10px;
+}
+
+.fw400 {
+  font-weight: 400;
+}
+
+.p5 {
+  padding: 5px;
+}
+
+.pb50 {
+  padding-bottom: 50px;
+}
+
+.question-detail-preview {
+  background-color: rgb(254, 250, 248);
+  padding: 10px;
+  color:#1c1c1d;
+  border-radius: 10px;
+  font-weight: 400;
+  font-size: 18px;
+  margin: 10px;
+}
+
+.label-button {
+  font-weight: 500; 
+  font-size: 16px; 
+  border-radius: 10px; 
+  padding: 4px; 
+  color:black; 
+  background-color: rgb(220, 159, 8);
+  text-decoration: none;
+  margin-right: 0px;
+  margin-left: 5px;
+}
+
+.button-function {
+  font-size: 18px; 
+  background-color:black; 
+  border: solid 2px rgb(220, 159, 8);
+  border-radius: 10px; 
+  color: white; 
+  padding: 4px; 
+  margin-right: 5px;
+  text-decoration: none;
+}
+
+.disable {
+  color: gray;
+}
+
+.view-hide {
+  display:flex;
+  margin:0; 
+  margin-left:5px; 
+  margin: 5px 0 0 8px;
+  font-size: 16px; 
+  font-weight:800; 
+  color:rgb(255, 213, 0);
+  color: #311B8E;
+  color: rgba(255, 213, 0, 0.851); 
+}
+
+.question-button {
+  font-size: 25px; 
+  border-radius: 10px; 
+  padding: 5px; 
+  color:white; 
+  background-color:black; 
+  border: solid 3px rgb(116, 115, 115); 
+  border: solid 3px rgb(220, 159, 8);
+  text-decoration: none;
+  margin-top:0;
+  margin-bottom:0;
+  margin-right: 4px;
+}
+
+.highlight-button {
+  background-color: white;
+  background-color: rgb(254, 250, 248);
+  color: black;
+  border: solid 3px black;
+}
+
+.search-form p {
+  color:white;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.search-form {
+  display: flex;
+}
+
+.form-div, .search-form-div {
+  background-color: rgba(0, 0, 0, 0.527);
+  padding: 10px;
+  color: white;
+  margin-left: 30px;
+  margin-left: 150px;
+  margin-right: 10px;
+  display:flex;
+  border-radius: 10px;
+}
+.search-form-div {
+  margin-left: 0;
+  margin-right: 50px;
+  width: 340px;
+}
+
+.search-form-div form {
+  color: white;
+}
+
+.form-div form {
+  color:white;
+  width: 95%;
+}
+
+.form-div form p {
+  display: flex;
+}
+
+.form-div label, .form-div select {
+  margin-right: 10px;
+}
+
+.form-div label {
+  font-size: 18px;
+}
+
+.form-div span {
+  font-size: 15px;
+  color: white;
+}
+
+.form-div select {
+  font-size: 16px;
+}
+
+.form-div textarea, .form-div input, .form-div select {
+  border-radius: 10px;
+  background-color:rgba(244, 249, 252, 0.993);
+}
+
+.form-div textarea {
+  font-size: 16px;
+  width: 90%;
+}
+
+.form-div input {
+  font-size: 18px;
+  width: 60%;
+}
+
+.answer-block {
+  background-color: #000000d9;
+  font-size: 25px;
+  margin: 15px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  padding-left: 5px;
+  color: rgb(226, 223, 223); 
+  border-radius: 10px;
+}
+
+.answer {
+  font-family: 'Indie Flower', cursive; 
+  font-family: 'Acme', sans-serif;
+  font-size: 18px;
+  padding:3px; 
+  max-width: 70%; 
+  margin-bottom:3px; 
+  margin-top:6px; 
+  color: rgb(226, 223, 223);  
+  margin-right: 10px; 
+  margin-left: 20px;
+}
+
+.answer-time {
+  padding: 3px;
+  /* width: 25%;  */
+  margin-bottom:5px; 
+  margin-top: 0;
+  color:#debb14;
+  font-size: 16px;
+  padding-bottom: 10px;
+}
+
+.answer-delete {
+  font-size: 13px;
+  margin-left: 40px;
+}
+
+.highlight-answer {
+  color: purple;
+}

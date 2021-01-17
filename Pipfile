@@ -18,6 +18,7 @@ requests = "*"
 django-on-heroku = "*"
 psycopg2-binary = "*"
 gunicorn = "*"
+django-staticfiles = "*"
 
 [requires]
 python_version = "3.8"
