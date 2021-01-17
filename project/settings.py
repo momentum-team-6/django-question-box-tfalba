@@ -33,6 +33,7 @@ SECRET_KEY = env('SECRET_KEY')
 DEBUG = True
 
 ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['cryptic-bastion-74478.herokuapp.com']
 
 # Application definition
 
@@ -87,7 +88,7 @@ WSGI_APPLICATION = 'project.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/3.0/ref/settings/#databases
 
-DATABASES = {'default': env.db()}
+#DATABASES = {'default': env.db()}
 
 DATABASES = {
     'default': {
