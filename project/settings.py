@@ -95,7 +95,7 @@ DATABASES = {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
         'NAME': 'question',
         'USER': 'question',
-        'HOST': 'cryptic-bastion-74478.herokuapp.com',
+        'HOST': 'localhost',
         'PORT': '5432',
     }
 }
@@ -156,3 +156,7 @@ INTERNAL_IPS = [
 ACCOUNT_ACTIVATION_DAYS = 7
 REGISTRATION_AUTO_LOGIN = True
 LOGIN_REDIRECT_URL = '/'
+
+
+import django_on_heroku
+django_on_heroku.settings(locals())
