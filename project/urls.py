@@ -15,6 +15,8 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.conf import settings
+from django.conf.urls.static import static
+
 from django.urls import include, path
 from core import views
 
@@ -33,7 +35,7 @@ urlpatterns = [
     path('questions/<int:pk>/answer/mark_correct', views.mark_correct, name='mark_correct'),
     path('questions/<int:pk>/mark_closed', views.mark_closed, name='mark_closed'),
 
-]
+] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
 
 if settings.DEBUG:
     import debug_toolbar
