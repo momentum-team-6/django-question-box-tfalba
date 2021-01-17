@@ -95,7 +95,7 @@ DATABASES = {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
         'NAME': 'question',
         'USER': 'question',
-        'HOST': 'localhost',
+        'HOST': 'cryptic-bastion-74478.herokuapp.com',
         'PORT': '5432',
     }
 }
